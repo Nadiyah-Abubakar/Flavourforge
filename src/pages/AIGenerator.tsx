@@ -148,6 +148,38 @@ const AIGenerator = () => {
     }
   };
 
+  const handleSave = async () => {
+    if (!user) {
+      toast.error("Please sign in to save recipes");
+      navigate("/auth");
+      return;
+    }
+    if (!recipeText) return;
+
+    setIsSaving(true);
+    const titleMatch = recipeText.match(/^#\s+(.+)$/m);
+    const title = titleMatch ? titleMatch[1] : "AI Generated Recipe";
+
+    const { error } = await supabase.from("saved_recipes").insert({
+      user_id: user.id,
+      title,
+      content: recipeText,
+      halaal_mode: halaalMode,
+      baking_mode: bakingMode,
+      cuisine: cuisine !== "Any" ? cuisine : null,
+      servings,
+      ingredients,
+    } as any);
+
+    if (error) {
+      toast.error("Failed to save recipe");
+    } else {
+      toast.success("Recipe saved!");
+      setIsSaved(true);
+    }
+    setIsSaving(false);
+  };
+
   // Simple markdown-to-JSX renderer for recipe output
   const renderMarkdown = (text: string) => {
     const lines = text.split("\n");

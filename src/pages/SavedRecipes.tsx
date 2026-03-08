@@ -122,7 +122,7 @@ const SavedRecipes = () => {
                       </span>
                       {recipe.cuisine && <span className="rounded-full bg-muted px-2 py-0.5">{recipe.cuisine}</span>}
                       {recipe.servings && <span className="rounded-full bg-muted px-2 py-0.5">{recipe.servings} servings</span>}
-                      {recipe.halaal_mode && <HalaalBadge />}
+                      {recipe.halaal_mode && <HalaalBadge status="naturally-halaal" />}
                       {recipe.baking_mode && <span className="rounded-full bg-muted px-2 py-0.5">🍞 Baking</span>}
                     </div>
                   </button>

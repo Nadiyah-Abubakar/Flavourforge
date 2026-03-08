@@ -80,6 +80,23 @@ const Navbar = () => {
           >
             {dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </button>
+          {user ? (
+            <button
+              onClick={() => signOut()}
+              className="hidden sm:flex items-center gap-1.5 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            >
+              <LogOut className="h-4 w-4" />
+              Sign Out
+            </button>
+          ) : (
+            <Link
+              to="/auth"
+              className="hidden sm:flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium text-primary hover:bg-muted transition-colors"
+            >
+              <User className="h-4 w-4" />
+              Sign In
+            </Link>
+          )}
           <button
             onClick={() => setOpen(!open)}
             className="rounded-md p-2 text-foreground lg:hidden"

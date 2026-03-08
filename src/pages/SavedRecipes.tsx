@@ -6,7 +6,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { BookOpen, Trash2, Loader2, ChefHat, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { HalaalBadge } from "@/components/HalaalBadge";
+import HalaalBadge from "@/components/HalaalBadge";
 
 interface SavedRecipe {
   id: string;

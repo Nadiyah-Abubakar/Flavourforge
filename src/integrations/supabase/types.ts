@@ -14,7 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+          username: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id: string
+          updated_at?: string
+          username?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+          username?: string | null
+        }
+        Relationships: []
+      }
+      saved_recipes: {
+        Row: {
+          baking_mode: boolean
+          content: string
+          created_at: string
+          cuisine: string | null
+          halaal_mode: boolean
+          id: string
+          ingredients: string[] | null
+          servings: number | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          baking_mode?: boolean
+          content: string
+          created_at?: string
+          cuisine?: string | null
+          halaal_mode?: boolean
+          id?: string
+          ingredients?: string[] | null
+          servings?: number | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          baking_mode?: boolean
+          content?: string
+          created_at?: string
+          cuisine?: string | null
+          halaal_mode?: boolean
+          id?: string
+          ingredients?: string[] | null
+          servings?: number | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

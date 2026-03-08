@@ -472,7 +472,7 @@ export const recipes: Recipe[] = [
     id: "panna-cotta",
     name: "Vanilla Panna Cotta",
     description: "Silky Italian cream dessert served chilled with a berry compote.",
-    image: lavaCake,
+    image: pannaCotta,
     category: "desserts",
     cuisine: "Italian",
     difficulty: "beginner",

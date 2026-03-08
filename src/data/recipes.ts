@@ -909,7 +909,7 @@ export const recipes: Recipe[] = [
     id: "fruit-salad",
     name: "Tropical Fruit Salad",
     description: "Vibrant mix of mango, pineapple, kiwi, and passion fruit with a lime-honey dressing.",
-    image: victoriaSponge,
+    image: fruitSalad,
     category: "desserts",
     cuisine: "Caribbean",
     difficulty: "beginner",

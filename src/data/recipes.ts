@@ -943,7 +943,7 @@ export const recipes: Recipe[] = [
     id: "jollof-rice",
     name: "Nigerian Jollof Rice",
     description: "Smoky, spiced tomato rice cooked low and slow — the undisputed king of West African cuisine.",
-    image: tikkaMasala,
+    image: jollofRice,
     category: "dinner",
     cuisine: "Nigerian",
     difficulty: "intermediate",

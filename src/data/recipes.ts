@@ -775,7 +775,7 @@ export const recipes: Recipe[] = [
     id: "banana-smoothie",
     name: "Banana Peanut Butter Smoothie",
     description: "Thick and creamy protein-packed smoothie with banana, peanut butter, and oats.",
-    image: victoriaSponge,
+    image: bananaSmoothie,
     category: "drinks",
     cuisine: "American",
     difficulty: "beginner",

@@ -1064,7 +1064,7 @@ export const recipes: Recipe[] = [
     id: "pounded-yam-egusi",
     name: "Pounded Yam with Egusi Soup",
     description: "Smooth pounded yam served with rich melon seed soup loaded with spinach and stockfish.",
-    image: shakshuka,
+    image: poundedYam,
     category: "dinner",
     cuisine: "Nigerian",
     difficulty: "intermediate",

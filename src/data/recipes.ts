@@ -510,7 +510,7 @@ export const recipes: Recipe[] = [
     id: "mango-lassi",
     name: "Mango Lassi",
     description: "Refreshing Indian yogurt drink blended with ripe mango and a hint of cardamom.",
-    image: shakshuka,
+    image: mangoLassi,
     category: "drinks",
     cuisine: "Indian",
     difficulty: "beginner",

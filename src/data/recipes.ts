@@ -1030,7 +1030,7 @@ export const recipes: Recipe[] = [
     id: "fried-rice",
     name: "Egg Fried Rice",
     description: "Quick wok-tossed rice with scrambled eggs, spring onions, peas, and soy sauce.",
-    image: mushroomRisotto,
+    image: friedRice,
     category: "dinner",
     cuisine: "Chinese",
     difficulty: "beginner",

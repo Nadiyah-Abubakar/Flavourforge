@@ -540,7 +540,7 @@ export const recipes: Recipe[] = [
     id: "mint-lemonade",
     name: "Fresh Mint Lemonade",
     description: "Zesty homemade lemonade with fresh mint leaves, perfect for hot days.",
-    image: mushroomRisotto,
+    image: mintLemonade,
     category: "drinks",
     cuisine: "Middle Eastern",
     difficulty: "beginner",

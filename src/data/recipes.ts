@@ -1359,7 +1359,7 @@ export const recipes: Recipe[] = [
     id: "potato-soup",
     name: "Loaded Potato Soup",
     description: "Thick, creamy potato soup topped with cheese, crispy bacon bits, and chives.",
-    image: sourdough,
+    image: potatoSoup,
     category: "lunch",
     cuisine: "American",
     difficulty: "beginner",

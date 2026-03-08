@@ -130,6 +130,22 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+              {user ? (
+                <button
+                  onClick={() => { signOut(); setOpen(false); }}
+                  className="rounded-md px-3 py-3 font-body text-sm font-medium text-muted-foreground hover:bg-muted text-left"
+                >
+                  Sign Out
+                </button>
+              ) : (
+                <Link
+                  to="/auth"
+                  onClick={() => setOpen(false)}
+                  className="rounded-md px-3 py-3 font-body text-sm font-medium text-primary hover:bg-muted"
+                >
+                  Sign In
+                </Link>
+              )}
             </nav>
           </motion.div>
         )}

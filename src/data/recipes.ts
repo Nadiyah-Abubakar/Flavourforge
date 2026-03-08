@@ -4,6 +4,41 @@ import victoriaSponge from "@/assets/recipes/victoria-sponge.jpg";
 import sourdough from "@/assets/recipes/sourdough.jpg";
 import mushroomRisotto from "@/assets/recipes/mushroom-risotto.jpg";
 import lavaCake from "@/assets/recipes/lava-cake.jpg";
+import avocadoToast from "@/assets/recipes/avocado-toast.jpg";
+import butterChicken from "@/assets/recipes/butter-chicken.jpg";
+import greekSalad from "@/assets/recipes/greek-salad.jpg";
+import beefTacos from "@/assets/recipes/beef-tacos.jpg";
+import pannaCotta from "@/assets/recipes/panna-cotta.jpg";
+import mangoLassi from "@/assets/recipes/mango-lassi.jpg";
+import mintLemonade from "@/assets/recipes/mint-lemonade.jpg";
+import icedChai from "@/assets/recipes/iced-chai.jpg";
+import tiramisu from "@/assets/recipes/tiramisu.jpg";
+import hummus from "@/assets/recipes/hummus.jpg";
+import capreseSalad from "@/assets/recipes/caprese-salad.jpg";
+import chocolateMousse from "@/assets/recipes/chocolate-mousse.jpg";
+import falafelWrap from "@/assets/recipes/falafel-wrap.jpg";
+import bananaSmoothie from "@/assets/recipes/banana-smoothie.jpg";
+import springRolls from "@/assets/recipes/spring-rolls.jpg";
+import strawberryIceCream from "@/assets/recipes/strawberry-ice-cream.jpg";
+import lambKofta from "@/assets/recipes/lamb-kofta.jpg";
+import fruitSalad from "@/assets/recipes/fruit-salad.jpg";
+import jollofRice from "@/assets/recipes/jollof-rice.jpg";
+import biryani from "@/assets/recipes/biryani.jpg";
+import friedRice from "@/assets/recipes/fried-rice.jpg";
+import poundedYam from "@/assets/recipes/pounded-yam.jpg";
+import yamPorridge from "@/assets/recipes/yam-porridge.jpg";
+import roastPotatoes from "@/assets/recipes/roast-potatoes.jpg";
+import potatoGratin from "@/assets/recipes/potato-gratin.jpg";
+import spaghettiBolognese from "@/assets/recipes/spaghetti-bolognese.jpg";
+import carbonara from "@/assets/recipes/carbonara.jpg";
+import penneArrabbiata from "@/assets/recipes/penne-arrabbiata.jpg";
+import potatoSamosa from "@/assets/recipes/potato-samosa.jpg";
+import potatoSoup from "@/assets/recipes/potato-soup.jpg";
+import cinnamonRolls from "@/assets/recipes/cinnamon-rolls.jpg";
+import bananaBread from "@/assets/recipes/banana-bread.jpg";
+import frenchOmelette from "@/assets/recipes/french-omelette.jpg";
+import nachos from "@/assets/recipes/nachos.jpg";
+import ricePudding from "@/assets/recipes/rice-pudding.jpg";
 
 export type HalaalStatus = "naturally-halaal" | "halaal-with-subs" | "verify";
 
@@ -293,7 +328,7 @@ export const recipes: Recipe[] = [
     id: "avocado-toast",
     name: "Loaded Avocado Toast",
     description: "Crispy sourdough topped with smashed avocado, cherry tomatoes, feta, and a chilli drizzle.",
-    image: shakshuka,
+    image: avocadoToast,
     category: "breakfast",
     cuisine: "Australian",
     difficulty: "beginner",
@@ -325,7 +360,7 @@ export const recipes: Recipe[] = [
     id: "butter-chicken",
     name: "Butter Chicken",
     description: "Silky tomato-based curry with tender chicken pieces, finished with cream and butter.",
-    image: tikkaMasala,
+    image: butterChicken,
     category: "dinner",
     cuisine: "Indian",
     difficulty: "intermediate",
@@ -365,7 +400,7 @@ export const recipes: Recipe[] = [
     id: "greek-salad",
     name: "Classic Greek Salad",
     description: "Fresh Mediterranean salad with tomatoes, cucumbers, olives, red onion, and feta.",
-    image: mushroomRisotto,
+    image: greekSalad,
     category: "lunch",
     cuisine: "Greek",
     difficulty: "beginner",
@@ -398,7 +433,7 @@ export const recipes: Recipe[] = [
     id: "beef-tacos",
     name: "Spiced Beef Tacos",
     description: "Seasoned ground beef in warm tortillas with fresh salsa, guacamole, and sour cream.",
-    image: tikkaMasala,
+    image: beefTacos,
     category: "dinner",
     cuisine: "Mexican",
     difficulty: "beginner",
@@ -437,7 +472,7 @@ export const recipes: Recipe[] = [
     id: "panna-cotta",
     name: "Vanilla Panna Cotta",
     description: "Silky Italian cream dessert served chilled with a berry compote.",
-    image: lavaCake,
+    image: pannaCotta,
     category: "desserts",
     cuisine: "Italian",
     difficulty: "beginner",
@@ -475,7 +510,7 @@ export const recipes: Recipe[] = [
     id: "mango-lassi",
     name: "Mango Lassi",
     description: "Refreshing Indian yogurt drink blended with ripe mango and a hint of cardamom.",
-    image: shakshuka,
+    image: mangoLassi,
     category: "drinks",
     cuisine: "Indian",
     difficulty: "beginner",
@@ -505,7 +540,7 @@ export const recipes: Recipe[] = [
     id: "mint-lemonade",
     name: "Fresh Mint Lemonade",
     description: "Zesty homemade lemonade with fresh mint leaves, perfect for hot days.",
-    image: mushroomRisotto,
+    image: mintLemonade,
     category: "drinks",
     cuisine: "Middle Eastern",
     difficulty: "beginner",
@@ -535,7 +570,7 @@ export const recipes: Recipe[] = [
     id: "iced-chai",
     name: "Iced Chai Latte",
     description: "Spiced tea concentrate served cold with milk and ice for a refreshing pick-me-up.",
-    image: tikkaMasala,
+    image: icedChai,
     category: "drinks",
     cuisine: "Indian",
     difficulty: "beginner",
@@ -568,7 +603,7 @@ export const recipes: Recipe[] = [
     id: "tiramisu",
     name: "Classic Tiramisu",
     description: "Layers of coffee-soaked ladyfingers and mascarpone cream, dusted with cocoa.",
-    image: lavaCake,
+    image: tiramisu,
     category: "desserts",
     cuisine: "Italian",
     difficulty: "intermediate",
@@ -605,7 +640,7 @@ export const recipes: Recipe[] = [
     id: "hummus",
     name: "Classic Hummus",
     description: "Silky smooth chickpea dip with tahini, garlic, and lemon — perfect with pita.",
-    image: shakshuka,
+    image: hummus,
     category: "snacks",
     cuisine: "Middle Eastern",
     difficulty: "beginner",
@@ -639,7 +674,7 @@ export const recipes: Recipe[] = [
     id: "caprese-salad",
     name: "Caprese Salad",
     description: "Simple Italian salad with fresh mozzarella, ripe tomatoes, basil, and balsamic glaze.",
-    image: mushroomRisotto,
+    image: capreseSalad,
     category: "lunch",
     cuisine: "Italian",
     difficulty: "beginner",
@@ -670,7 +705,7 @@ export const recipes: Recipe[] = [
     id: "chocolate-mousse",
     name: "Dark Chocolate Mousse",
     description: "Rich and airy chocolate mousse made with just four ingredients, served chilled.",
-    image: lavaCake,
+    image: chocolateMousse,
     category: "desserts",
     cuisine: "French",
     difficulty: "intermediate",
@@ -704,7 +739,7 @@ export const recipes: Recipe[] = [
     id: "falafel-wrap",
     name: "Falafel Wrap",
     description: "Crispy homemade falafel in warm pita with tahini sauce, pickles, and fresh vegetables.",
-    image: shakshuka,
+    image: falafelWrap,
     category: "lunch",
     cuisine: "Middle Eastern",
     difficulty: "intermediate",
@@ -740,7 +775,7 @@ export const recipes: Recipe[] = [
     id: "banana-smoothie",
     name: "Banana Peanut Butter Smoothie",
     description: "Thick and creamy protein-packed smoothie with banana, peanut butter, and oats.",
-    image: victoriaSponge,
+    image: bananaSmoothie,
     category: "drinks",
     cuisine: "American",
     difficulty: "beginner",
@@ -769,7 +804,7 @@ export const recipes: Recipe[] = [
     id: "spring-rolls",
     name: "Fresh Vietnamese Spring Rolls",
     description: "Light rice paper rolls filled with shrimp, vermicelli, herbs, and served with peanut sauce.",
-    image: mushroomRisotto,
+    image: springRolls,
     category: "snacks",
     cuisine: "Vietnamese",
     difficulty: "beginner",
@@ -805,7 +840,7 @@ export const recipes: Recipe[] = [
     id: "strawberry-ice-cream",
     name: "No-Churn Strawberry Ice Cream",
     description: "Creamy homemade strawberry ice cream — no machine needed. Just blend, freeze, and scoop.",
-    image: victoriaSponge,
+    image: strawberryIceCream,
     category: "desserts",
     cuisine: "American",
     difficulty: "beginner",
@@ -837,7 +872,7 @@ export const recipes: Recipe[] = [
     id: "lamb-kofta",
     name: "Lamb Kofta Kebabs",
     description: "Spiced lamb mince kebabs grilled to perfection, served with yogurt sauce and flatbread.",
-    image: tikkaMasala,
+    image: lambKofta,
     category: "dinner",
     cuisine: "Middle Eastern",
     difficulty: "intermediate",
@@ -874,7 +909,7 @@ export const recipes: Recipe[] = [
     id: "fruit-salad",
     name: "Tropical Fruit Salad",
     description: "Vibrant mix of mango, pineapple, kiwi, and passion fruit with a lime-honey dressing.",
-    image: victoriaSponge,
+    image: fruitSalad,
     category: "desserts",
     cuisine: "Caribbean",
     difficulty: "beginner",
@@ -908,7 +943,7 @@ export const recipes: Recipe[] = [
     id: "jollof-rice",
     name: "Nigerian Jollof Rice",
     description: "Smoky, spiced tomato rice cooked low and slow — the undisputed king of West African cuisine.",
-    image: tikkaMasala,
+    image: jollofRice,
     category: "dinner",
     cuisine: "Nigerian",
     difficulty: "intermediate",
@@ -952,7 +987,7 @@ export const recipes: Recipe[] = [
     id: "biryani",
     name: "Chicken Biryani",
     description: "Fragrant layered rice with marinated chicken, saffron, fried onions, and whole spices.",
-    image: tikkaMasala,
+    image: biryani,
     category: "dinner",
     cuisine: "Indian",
     difficulty: "advanced",
@@ -995,7 +1030,7 @@ export const recipes: Recipe[] = [
     id: "fried-rice",
     name: "Egg Fried Rice",
     description: "Quick wok-tossed rice with scrambled eggs, spring onions, peas, and soy sauce.",
-    image: mushroomRisotto,
+    image: friedRice,
     category: "dinner",
     cuisine: "Chinese",
     difficulty: "beginner",
@@ -1029,7 +1064,7 @@ export const recipes: Recipe[] = [
     id: "pounded-yam-egusi",
     name: "Pounded Yam with Egusi Soup",
     description: "Smooth pounded yam served with rich melon seed soup loaded with spinach and stockfish.",
-    image: shakshuka,
+    image: poundedYam,
     category: "dinner",
     cuisine: "Nigerian",
     difficulty: "intermediate",
@@ -1071,7 +1106,7 @@ export const recipes: Recipe[] = [
     id: "yam-porridge",
     name: "Yam Porridge (Asaro)",
     description: "Soft, spiced yam cooked in a rich pepper and tomato sauce until it forms a thick porridge.",
-    image: tikkaMasala,
+    image: yamPorridge,
     category: "lunch",
     cuisine: "Nigerian",
     difficulty: "beginner",
@@ -1107,7 +1142,7 @@ export const recipes: Recipe[] = [
     id: "roast-potatoes",
     name: "Crispy Roast Potatoes",
     description: "Golden, crunchy on the outside, fluffy inside — the perfect roast potato every time.",
-    image: mushroomRisotto,
+    image: roastPotatoes,
     category: "snacks",
     cuisine: "British",
     difficulty: "beginner",
@@ -1139,7 +1174,7 @@ export const recipes: Recipe[] = [
     id: "potato-gratin",
     name: "Dauphinoise Potatoes",
     description: "Thinly sliced potatoes baked in garlic cream until golden and bubbling.",
-    image: lavaCake,
+    image: potatoGratin,
     category: "dinner",
     cuisine: "French",
     difficulty: "intermediate",
@@ -1175,7 +1210,7 @@ export const recipes: Recipe[] = [
     id: "spaghetti-bolognese",
     name: "Spaghetti Bolognese",
     description: "Rich, slow-simmered meat sauce with a soffritto base, served over al dente spaghetti.",
-    image: mushroomRisotto,
+    image: spaghettiBolognese,
     category: "dinner",
     cuisine: "Italian",
     difficulty: "beginner",
@@ -1217,7 +1252,7 @@ export const recipes: Recipe[] = [
     id: "carbonara",
     name: "Spaghetti Carbonara",
     description: "Classic Roman pasta with eggs, pecorino, guanciale, and black pepper — no cream needed.",
-    image: mushroomRisotto,
+    image: carbonara,
     category: "dinner",
     cuisine: "Italian",
     difficulty: "intermediate",
@@ -1253,7 +1288,7 @@ export const recipes: Recipe[] = [
     id: "penne-arrabbiata",
     name: "Penne Arrabbiata",
     description: "Fiery Italian pasta in a spicy garlic and tomato sauce with fresh basil.",
-    image: shakshuka,
+    image: penneArrabbiata,
     category: "lunch",
     cuisine: "Italian",
     difficulty: "beginner",
@@ -1286,7 +1321,7 @@ export const recipes: Recipe[] = [
     id: "potato-samosa",
     name: "Potato Samosas",
     description: "Crispy pastry triangles stuffed with spiced potato, peas, and aromatic cumin.",
-    image: tikkaMasala,
+    image: potatoSamosa,
     category: "snacks",
     cuisine: "Indian",
     difficulty: "intermediate",
@@ -1324,7 +1359,7 @@ export const recipes: Recipe[] = [
     id: "potato-soup",
     name: "Loaded Potato Soup",
     description: "Thick, creamy potato soup topped with cheese, crispy bacon bits, and chives.",
-    image: sourdough,
+    image: potatoSoup,
     category: "lunch",
     cuisine: "American",
     difficulty: "beginner",
@@ -1362,7 +1397,7 @@ export const recipes: Recipe[] = [
     id: "cinnamon-rolls",
     name: "Cinnamon Rolls",
     description: "Soft, pillowy dough swirled with cinnamon-sugar butter and topped with cream cheese icing.",
-    image: victoriaSponge,
+    image: cinnamonRolls,
     category: "baking",
     cuisine: "American",
     difficulty: "intermediate",
@@ -1406,7 +1441,7 @@ export const recipes: Recipe[] = [
     id: "banana-bread",
     name: "Banana Bread",
     description: "Moist, tender banana bread with walnuts — the ultimate comfort bake using overripe bananas.",
-    image: sourdough,
+    image: bananaBread,
     category: "baking",
     cuisine: "American",
     difficulty: "beginner",
@@ -1444,7 +1479,7 @@ export const recipes: Recipe[] = [
     id: "french-omelette",
     name: "French Omelette",
     description: "Perfectly soft and creamy classic French omelette with fine herbs and butter.",
-    image: shakshuka,
+    image: frenchOmelette,
     category: "breakfast",
     cuisine: "French",
     difficulty: "intermediate",
@@ -1476,7 +1511,7 @@ export const recipes: Recipe[] = [
     id: "nachos",
     name: "Loaded Nachos",
     description: "Crispy tortilla chips loaded with melted cheese, jalapeños, salsa, guac, and sour cream.",
-    image: tikkaMasala,
+    image: nachos,
     category: "snacks",
     cuisine: "Mexican",
     difficulty: "beginner",
@@ -1510,7 +1545,7 @@ export const recipes: Recipe[] = [
     id: "rice-pudding",
     name: "Creamy Rice Pudding",
     description: "Old-fashioned baked rice pudding with vanilla, nutmeg, and a caramelised skin on top.",
-    image: victoriaSponge,
+    image: ricePudding,
     category: "desserts",
     cuisine: "British",
     difficulty: "beginner",

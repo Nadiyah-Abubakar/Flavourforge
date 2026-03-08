@@ -987,7 +987,7 @@ export const recipes: Recipe[] = [
     id: "biryani",
     name: "Chicken Biryani",
     description: "Fragrant layered rice with marinated chicken, saffron, fried onions, and whole spices.",
-    image: tikkaMasala,
+    image: biryani,
     category: "dinner",
     cuisine: "Indian",
     difficulty: "advanced",

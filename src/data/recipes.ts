@@ -360,7 +360,7 @@ export const recipes: Recipe[] = [
     id: "butter-chicken",
     name: "Butter Chicken",
     description: "Silky tomato-based curry with tender chicken pieces, finished with cream and butter.",
-    image: tikkaMasala,
+    image: butterChicken,
     category: "dinner",
     cuisine: "Indian",
     difficulty: "intermediate",

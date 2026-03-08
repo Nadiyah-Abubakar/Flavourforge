@@ -27,7 +27,7 @@ const Auth = () => {
         toast.success("Welcome back!");
         navigate("/");
       } else {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
@@ -36,7 +36,12 @@ const Auth = () => {
           },
         });
         if (error) throw error;
-        toast.success("Check your email to confirm your account!");
+        if (data.session) {
+          toast.success("Account created! Welcome!");
+          navigate("/");
+        } else {
+          toast.success("Check your email to confirm your account!");
+        }
       }
     } catch (error: any) {
       toast.error(error.message || "Authentication failed");

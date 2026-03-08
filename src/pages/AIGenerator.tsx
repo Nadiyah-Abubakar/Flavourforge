@@ -18,6 +18,8 @@ const skills = ["Beginner", "Intermediate", "Advanced"];
 const GENERATE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-recipe`;
 
 const AIGenerator = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [input, setInput] = useState("");
   const [halaalMode, setHalaalMode] = useState(false);
@@ -28,6 +30,8 @@ const AIGenerator = () => {
   const [skill, setSkill] = useState("Intermediate");
   const [isLoading, setIsLoading] = useState(false);
   const [recipeText, setRecipeText] = useState("");
+  const [isSaving, setIsSaving] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
 
   const addIngredient = () => {

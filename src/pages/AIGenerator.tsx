@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Sparkles, X, Minus, Plus, Loader2 } from "lucide-react";
+import { Sparkles, X, Minus, Plus, Loader2, Save } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
@@ -8,6 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 
 const cuisines = ["Any", "Italian", "Asian", "African", "Mexican", "Middle Eastern", "Indian", "Mediterranean", "American", "French"];
 const skills = ["Beginner", "Intermediate", "Advanced"];

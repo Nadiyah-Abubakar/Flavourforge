@@ -54,6 +54,7 @@ const AIGenerator = () => {
 
     setIsLoading(true);
     setRecipeText("");
+    setIsSaved(false);
 
     try {
       const resp = await fetch(GENERATE_URL, {

@@ -370,6 +370,28 @@ const AIGenerator = () => {
                   </p>
                 </div>
               )}
+
+              {recipeText && !isLoading && (
+                <div className="flex gap-2 mt-4">
+                  <Button
+                    onClick={handleSave}
+                    disabled={isSaving || isSaved}
+                    className="bg-gradient-warm border-0 text-primary-foreground font-semibold hover:opacity-90"
+                  >
+                    {isSaving ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      <Save className="mr-2 h-4 w-4" />
+                    )}
+                    {isSaved ? "Saved!" : "Save Recipe"}
+                  </Button>
+                  {isSaved && (
+                    <Button variant="outline" onClick={() => navigate("/saved-recipes")}>
+                      View Saved Recipes
+                    </Button>
+                  )}
+                </div>
+              )}
             </motion.div>
           )}
         </div>

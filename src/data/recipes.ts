@@ -1511,7 +1511,7 @@ export const recipes: Recipe[] = [
     id: "nachos",
     name: "Loaded Nachos",
     description: "Crispy tortilla chips loaded with melted cheese, jalapeños, salsa, guac, and sour cream.",
-    image: tikkaMasala,
+    image: nachos,
     category: "snacks",
     cuisine: "Mexican",
     difficulty: "beginner",

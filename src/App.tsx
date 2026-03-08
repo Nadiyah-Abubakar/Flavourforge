@@ -3,7 +3,15 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Index from "./pages/Index";
+import RecipeLibrary from "./pages/RecipeLibrary";
+import RecipeDetail from "./pages/RecipeDetail";
+import BakingStudio from "./pages/BakingStudio";
+import HalaalHub from "./pages/HalaalHub";
+import AIGenerator from "./pages/AIGenerator";
+import BakersToolkit from "./pages/BakersToolkit";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -14,11 +22,20 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/recipes" element={<RecipeLibrary />} />
+            <Route path="/recipes/:id" element={<RecipeDetail />} />
+            <Route path="/baking" element={<BakingStudio />} />
+            <Route path="/halaal" element={<HalaalHub />} />
+            <Route path="/ai-generator" element={<AIGenerator />} />
+            <Route path="/toolkit" element={<BakersToolkit />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

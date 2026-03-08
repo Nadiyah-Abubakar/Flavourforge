@@ -1441,7 +1441,7 @@ export const recipes: Recipe[] = [
     id: "banana-bread",
     name: "Banana Bread",
     description: "Moist, tender banana bread with walnuts — the ultimate comfort bake using overripe bananas.",
-    image: sourdough,
+    image: bananaBread,
     category: "baking",
     cuisine: "American",
     difficulty: "beginner",

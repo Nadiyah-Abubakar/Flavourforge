@@ -76,7 +76,7 @@
     --popover: 20 12% 12%;
     --popover-foreground: 30 15% 92%;
     --primary: 16 65% 55%;
-    --primary-foreground: 20 10% 8%;
+    --primary-foreground: 30 25% 97%;
     --secondary: 38 50% 45%;
     --secondary-foreground: 30 15% 92%;
     --muted: 20 10% 18%;
@@ -88,6 +88,12 @@
     --border: 20 10% 20%;
     --input: 20 10% 20%;
     --ring: 16 65% 55%;
+
+    --halaal-light: 145 30% 14%;
+    --warm-bg: 20 15% 12%;
+    --cream: 38 15% 12%;
+    --terracotta-light: 16 25% 16%;
+    --gold-light: 38 20% 14%;
   }
 }
 

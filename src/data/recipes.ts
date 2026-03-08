@@ -674,7 +674,7 @@ export const recipes: Recipe[] = [
     id: "caprese-salad",
     name: "Caprese Salad",
     description: "Simple Italian salad with fresh mozzarella, ripe tomatoes, basil, and balsamic glaze.",
-    image: mushroomRisotto,
+    image: capreseSalad,
     category: "lunch",
     cuisine: "Italian",
     difficulty: "beginner",

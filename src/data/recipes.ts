@@ -570,7 +570,7 @@ export const recipes: Recipe[] = [
     id: "iced-chai",
     name: "Iced Chai Latte",
     description: "Spiced tea concentrate served cold with milk and ice for a refreshing pick-me-up.",
-    image: tikkaMasala,
+    image: icedChai,
     category: "drinks",
     cuisine: "Indian",
     difficulty: "beginner",

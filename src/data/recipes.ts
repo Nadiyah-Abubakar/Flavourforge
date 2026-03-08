@@ -1174,7 +1174,7 @@ export const recipes: Recipe[] = [
     id: "potato-gratin",
     name: "Dauphinoise Potatoes",
     description: "Thinly sliced potatoes baked in garlic cream until golden and bubbling.",
-    image: lavaCake,
+    image: potatoGratin,
     category: "dinner",
     cuisine: "French",
     difficulty: "intermediate",

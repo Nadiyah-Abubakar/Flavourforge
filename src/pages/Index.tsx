@@ -44,7 +44,7 @@ const Homepage = () => {
                   Explore Recipes <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <Button asChild size="lg" className="border border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/20">
                 <Link to="/ai-generator">
                   <Sparkles className="mr-2 h-4 w-4" /> Try AI Generator
                 </Link>

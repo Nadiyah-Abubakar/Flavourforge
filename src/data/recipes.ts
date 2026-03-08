@@ -328,7 +328,7 @@ export const recipes: Recipe[] = [
     id: "avocado-toast",
     name: "Loaded Avocado Toast",
     description: "Crispy sourdough topped with smashed avocado, cherry tomatoes, feta, and a chilli drizzle.",
-    image: shakshuka,
+    image: avocadoToast,
     category: "breakfast",
     cuisine: "Australian",
     difficulty: "beginner",

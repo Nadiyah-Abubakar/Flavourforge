@@ -872,7 +872,7 @@ export const recipes: Recipe[] = [
     id: "lamb-kofta",
     name: "Lamb Kofta Kebabs",
     description: "Spiced lamb mince kebabs grilled to perfection, served with yogurt sauce and flatbread.",
-    image: tikkaMasala,
+    image: lambKofta,
     category: "dinner",
     cuisine: "Middle Eastern",
     difficulty: "intermediate",

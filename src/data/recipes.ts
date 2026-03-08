@@ -1397,7 +1397,7 @@ export const recipes: Recipe[] = [
     id: "cinnamon-rolls",
     name: "Cinnamon Rolls",
     description: "Soft, pillowy dough swirled with cinnamon-sugar butter and topped with cream cheese icing.",
-    image: victoriaSponge,
+    image: cinnamonRolls,
     category: "baking",
     cuisine: "American",
     difficulty: "intermediate",

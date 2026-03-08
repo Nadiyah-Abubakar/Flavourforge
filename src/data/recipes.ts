@@ -400,7 +400,7 @@ export const recipes: Recipe[] = [
     id: "greek-salad",
     name: "Classic Greek Salad",
     description: "Fresh Mediterranean salad with tomatoes, cucumbers, olives, red onion, and feta.",
-    image: mushroomRisotto,
+    image: greekSalad,
     category: "lunch",
     cuisine: "Greek",
     difficulty: "beginner",

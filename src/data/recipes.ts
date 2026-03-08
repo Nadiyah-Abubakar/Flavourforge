@@ -1252,7 +1252,7 @@ export const recipes: Recipe[] = [
     id: "carbonara",
     name: "Spaghetti Carbonara",
     description: "Classic Roman pasta with eggs, pecorino, guanciale, and black pepper — no cream needed.",
-    image: mushroomRisotto,
+    image: carbonara,
     category: "dinner",
     cuisine: "Italian",
     difficulty: "intermediate",

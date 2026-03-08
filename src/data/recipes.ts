@@ -705,7 +705,7 @@ export const recipes: Recipe[] = [
     id: "chocolate-mousse",
     name: "Dark Chocolate Mousse",
     description: "Rich and airy chocolate mousse made with just four ingredients, served chilled.",
-    image: lavaCake,
+    image: chocolateMousse,
     category: "desserts",
     cuisine: "French",
     difficulty: "intermediate",

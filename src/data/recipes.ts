@@ -739,7 +739,7 @@ export const recipes: Recipe[] = [
     id: "falafel-wrap",
     name: "Falafel Wrap",
     description: "Crispy homemade falafel in warm pita with tahini sauce, pickles, and fresh vegetables.",
-    image: shakshuka,
+    image: falafelWrap,
     category: "lunch",
     cuisine: "Middle Eastern",
     difficulty: "intermediate",

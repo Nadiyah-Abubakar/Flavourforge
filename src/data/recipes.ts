@@ -1479,7 +1479,7 @@ export const recipes: Recipe[] = [
     id: "french-omelette",
     name: "French Omelette",
     description: "Perfectly soft and creamy classic French omelette with fine herbs and butter.",
-    image: shakshuka,
+    image: frenchOmelette,
     category: "breakfast",
     cuisine: "French",
     difficulty: "intermediate",

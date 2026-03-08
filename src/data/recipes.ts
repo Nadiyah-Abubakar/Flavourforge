@@ -804,7 +804,7 @@ export const recipes: Recipe[] = [
     id: "spring-rolls",
     name: "Fresh Vietnamese Spring Rolls",
     description: "Light rice paper rolls filled with shrimp, vermicelli, herbs, and served with peanut sauce.",
-    image: mushroomRisotto,
+    image: springRolls,
     category: "snacks",
     cuisine: "Vietnamese",
     difficulty: "beginner",

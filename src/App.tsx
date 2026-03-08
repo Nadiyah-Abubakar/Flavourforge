@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
@@ -12,6 +13,7 @@ import BakingStudio from "./pages/BakingStudio";
 import HalaalHub from "./pages/HalaalHub";
 import AIGenerator from "./pages/AIGenerator";
 import BakersToolkit from "./pages/BakersToolkit";
+import MealPlanner from "./pages/MealPlanner";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         <main>
           <Routes>
@@ -32,6 +35,7 @@ const App = () => (
             <Route path="/halaal" element={<HalaalHub />} />
             <Route path="/ai-generator" element={<AIGenerator />} />
             <Route path="/toolkit" element={<BakersToolkit />} />
+            <Route path="/meal-planner" element={<MealPlanner />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

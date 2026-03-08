@@ -12,6 +12,7 @@ const categories: { label: string; value: Category | "all" }[] = [
   { label: "Desserts", value: "desserts" },
   { label: "Baking", value: "baking" },
   { label: "Snacks", value: "snacks" },
+  { label: "Drinks", value: "drinks" },
 ];
 
 const RecipeLibrary = () => {
@@ -34,7 +35,7 @@ const RecipeLibrary = () => {
       <div className="bg-warm py-12 md:py-16">
         <div className="container">
           <h1 className="font-display text-3xl font-bold text-foreground md:text-4xl">Recipe Library</h1>
-          <p className="mt-2 text-muted-foreground">Explore our curated collection of 150+ recipes</p>
+          <p className="mt-2 text-muted-foreground">Explore our curated collection of {recipes.length}+ recipes</p>
 
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
             <div className="relative flex-1">

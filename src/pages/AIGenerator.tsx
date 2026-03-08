@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, X } from "lucide-react";
+import { Sparkles, X, Minus, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
@@ -135,14 +135,21 @@ const AIGenerator = () => {
 
             <div className="flex items-center gap-3">
               <Label className="text-sm text-muted-foreground">Servings:</Label>
-              <Input
-                type="number"
-                value={servings}
-                onChange={(e) => setServings(Math.max(1, Math.min(12, parseInt(e.target.value) || 1)))}
-                className="w-20"
-                min={1}
-                max={12}
-              />
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setServings(Math.max(1, servings - 1))}
+                  className="rounded-md border border-border p-1.5 hover:bg-muted transition-colors"
+                >
+                  <Minus className="h-4 w-4" />
+                </button>
+                <span className="w-8 text-center font-semibold text-foreground">{servings}</span>
+                <button
+                  onClick={() => setServings(Math.min(12, servings + 1))}
+                  className="rounded-md border border-border p-1.5 hover:bg-muted transition-colors"
+                >
+                  <Plus className="h-4 w-4" />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -170,7 +177,7 @@ const AIGenerator = () => {
               </div>
               <div className="rounded-lg bg-muted p-4">
                 <p className="text-center text-muted-foreground italic">
-                  🚧 AI generation requires a backend API integration (OpenAI or Anthropic Claude). This UI is ready to connect — enable Lovable Cloud to add the AI recipe generation functionality.
+                  🚧 AI generation requires a backend integration. Enable Lovable Cloud to power AI recipe generation with your ingredients and preferences.
                 </p>
               </div>
               {halaalMode && (

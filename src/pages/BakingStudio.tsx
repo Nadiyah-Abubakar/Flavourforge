@@ -19,7 +19,7 @@ const BakingStudio = () => {
             <p className="mt-3 mx-auto max-w-xl text-primary-foreground/80">
               60+ curated baking recipes with gram-precision measurements, oven guides, and halaal alternatives.
             </p>
-            <Button asChild variant="outline" size="lg" className="mt-6 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+            <Button asChild size="lg" className="mt-6 bg-background text-foreground hover:bg-background/90 font-semibold">
               <Link to="/toolkit">Open Baker's Toolkit <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </motion.div>

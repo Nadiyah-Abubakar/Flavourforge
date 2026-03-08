@@ -1210,7 +1210,7 @@ export const recipes: Recipe[] = [
     id: "spaghetti-bolognese",
     name: "Spaghetti Bolognese",
     description: "Rich, slow-simmered meat sauce with a soffritto base, served over al dente spaghetti.",
-    image: mushroomRisotto,
+    image: spaghettiBolognese,
     category: "dinner",
     cuisine: "Italian",
     difficulty: "beginner",

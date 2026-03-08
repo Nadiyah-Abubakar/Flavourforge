@@ -1288,7 +1288,7 @@ export const recipes: Recipe[] = [
     id: "penne-arrabbiata",
     name: "Penne Arrabbiata",
     description: "Fiery Italian pasta in a spicy garlic and tomato sauce with fresh basil.",
-    image: shakshuka,
+    image: penneArrabbiata,
     category: "lunch",
     cuisine: "Italian",
     difficulty: "beginner",

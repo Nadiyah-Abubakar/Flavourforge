@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Sparkles, X, Minus, Plus, Loader2 } from "lucide-react";
+import { Sparkles, X, Minus, Plus, Loader2, Save } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
@@ -8,6 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 
 const cuisines = ["Any", "Italian", "Asian", "African", "Mexican", "Middle Eastern", "Indian", "Mediterranean", "American", "French"];
 const skills = ["Beginner", "Intermediate", "Advanced"];
@@ -15,6 +18,8 @@ const skills = ["Beginner", "Intermediate", "Advanced"];
 const GENERATE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-recipe`;
 
 const AIGenerator = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [input, setInput] = useState("");
   const [halaalMode, setHalaalMode] = useState(false);
@@ -25,6 +30,8 @@ const AIGenerator = () => {
   const [skill, setSkill] = useState("Intermediate");
   const [isLoading, setIsLoading] = useState(false);
   const [recipeText, setRecipeText] = useState("");
+  const [isSaving, setIsSaving] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
 
   const addIngredient = () => {
@@ -47,6 +54,7 @@ const AIGenerator = () => {
 
     setIsLoading(true);
     setRecipeText("");
+    setIsSaved(false);
 
     try {
       const resp = await fetch(GENERATE_URL, {
@@ -139,6 +147,38 @@ const AIGenerator = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleSave = async () => {
+    if (!user) {
+      toast.error("Please sign in to save recipes");
+      navigate("/auth");
+      return;
+    }
+    if (!recipeText) return;
+
+    setIsSaving(true);
+    const titleMatch = recipeText.match(/^#\s+(.+)$/m);
+    const title = titleMatch ? titleMatch[1] : "AI Generated Recipe";
+
+    const { error } = await supabase.from("saved_recipes").insert({
+      user_id: user.id,
+      title,
+      content: recipeText,
+      halaal_mode: halaalMode,
+      baking_mode: bakingMode,
+      cuisine: cuisine !== "Any" ? cuisine : null,
+      servings,
+      ingredients,
+    } as any);
+
+    if (error) {
+      toast.error("Failed to save recipe");
+    } else {
+      toast.success("Recipe saved!");
+      setIsSaved(true);
+    }
+    setIsSaving(false);
   };
 
   // Simple markdown-to-JSX renderer for recipe output
@@ -329,6 +369,28 @@ const AIGenerator = () => {
                   <p className="mt-1 text-xs text-muted-foreground">
                     All meat in this recipe should be sourced from a certified halaal butcher. All alcohol has been replaced with non-alcoholic alternatives. Always verify product labels.
                   </p>
+                </div>
+              )}
+
+              {recipeText && !isLoading && (
+                <div className="flex gap-2 mt-4">
+                  <Button
+                    onClick={handleSave}
+                    disabled={isSaving || isSaved}
+                    className="bg-gradient-warm border-0 text-primary-foreground font-semibold hover:opacity-90"
+                  >
+                    {isSaving ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      <Save className="mr-2 h-4 w-4" />
+                    )}
+                    {isSaved ? "Saved!" : "Save Recipe"}
+                  </Button>
+                  {isSaved && (
+                    <Button variant="outline" onClick={() => navigate("/saved-recipes")}>
+                      View Saved Recipes
+                    </Button>
+                  )}
                 </div>
               )}
             </motion.div>

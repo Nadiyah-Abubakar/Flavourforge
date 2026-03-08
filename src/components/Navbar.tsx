@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Search, ArrowLeft, Sun, Moon, Home } from "lucide-react";
+import { Menu, X, Search, ArrowLeft, Sun, Moon, Home, User, LogOut, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -12,12 +13,14 @@ const navLinks = [
   { label: "AI Generator", href: "/ai-generator" },
   { label: "Baker's Toolkit", href: "/toolkit" },
   { label: "Meal Planner", href: "/meal-planner" },
+  { label: "Saved Recipes", href: "/saved-recipes" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
   const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
 
   const toggleDark = () => {
@@ -77,6 +80,23 @@ const Navbar = () => {
           >
             {dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </button>
+          {user ? (
+            <button
+              onClick={() => signOut()}
+              className="hidden sm:flex items-center gap-1.5 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            >
+              <LogOut className="h-4 w-4" />
+              Sign Out
+            </button>
+          ) : (
+            <Link
+              to="/auth"
+              className="hidden sm:flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium text-primary hover:bg-muted transition-colors"
+            >
+              <User className="h-4 w-4" />
+              Sign In
+            </Link>
+          )}
           <button
             onClick={() => setOpen(!open)}
             className="rounded-md p-2 text-foreground lg:hidden"
@@ -110,6 +130,22 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+              {user ? (
+                <button
+                  onClick={() => { signOut(); setOpen(false); }}
+                  className="rounded-md px-3 py-3 font-body text-sm font-medium text-muted-foreground hover:bg-muted text-left"
+                >
+                  Sign Out
+                </button>
+              ) : (
+                <Link
+                  to="/auth"
+                  onClick={() => setOpen(false)}
+                  className="rounded-md px-3 py-3 font-body text-sm font-medium text-primary hover:bg-muted"
+                >
+                  Sign In
+                </Link>
+              )}
             </nav>
           </motion.div>
         )}

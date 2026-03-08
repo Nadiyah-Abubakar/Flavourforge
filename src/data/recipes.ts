@@ -840,7 +840,7 @@ export const recipes: Recipe[] = [
     id: "strawberry-ice-cream",
     name: "No-Churn Strawberry Ice Cream",
     description: "Creamy homemade strawberry ice cream — no machine needed. Just blend, freeze, and scoop.",
-    image: victoriaSponge,
+    image: strawberryIceCream,
     category: "desserts",
     cuisine: "American",
     difficulty: "beginner",

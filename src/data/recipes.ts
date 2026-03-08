@@ -433,7 +433,7 @@ export const recipes: Recipe[] = [
     id: "beef-tacos",
     name: "Spiced Beef Tacos",
     description: "Seasoned ground beef in warm tortillas with fresh salsa, guacamole, and sour cream.",
-    image: tikkaMasala,
+    image: beefTacos,
     category: "dinner",
     cuisine: "Mexican",
     difficulty: "beginner",

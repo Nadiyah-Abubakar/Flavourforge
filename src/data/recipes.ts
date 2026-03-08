@@ -640,7 +640,7 @@ export const recipes: Recipe[] = [
     id: "hummus",
     name: "Classic Hummus",
     description: "Silky smooth chickpea dip with tahini, garlic, and lemon — perfect with pita.",
-    image: shakshuka,
+    image: hummus,
     category: "snacks",
     cuisine: "Middle Eastern",
     difficulty: "beginner",

@@ -20,6 +20,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
   const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
 
   const toggleDark = () => {

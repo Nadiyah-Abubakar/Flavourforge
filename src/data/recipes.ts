@@ -603,7 +603,7 @@ export const recipes: Recipe[] = [
     id: "tiramisu",
     name: "Classic Tiramisu",
     description: "Layers of coffee-soaked ladyfingers and mascarpone cream, dusted with cocoa.",
-    image: lavaCake,
+    image: tiramisu,
     category: "desserts",
     cuisine: "Italian",
     difficulty: "intermediate",

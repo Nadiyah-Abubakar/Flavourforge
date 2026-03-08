@@ -1142,7 +1142,7 @@ export const recipes: Recipe[] = [
     id: "roast-potatoes",
     name: "Crispy Roast Potatoes",
     description: "Golden, crunchy on the outside, fluffy inside — the perfect roast potato every time.",
-    image: mushroomRisotto,
+    image: roastPotatoes,
     category: "snacks",
     cuisine: "British",
     difficulty: "beginner",

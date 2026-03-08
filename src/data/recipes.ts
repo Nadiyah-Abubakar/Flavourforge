@@ -1106,7 +1106,7 @@ export const recipes: Recipe[] = [
     id: "yam-porridge",
     name: "Yam Porridge (Asaro)",
     description: "Soft, spiced yam cooked in a rich pepper and tomato sauce until it forms a thick porridge.",
-    image: tikkaMasala,
+    image: yamPorridge,
     category: "lunch",
     cuisine: "Nigerian",
     difficulty: "beginner",

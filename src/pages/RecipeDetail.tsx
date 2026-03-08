@@ -6,6 +6,18 @@ import { Button } from "@/components/ui/button";
 import HalaalBadge from "@/components/HalaalBadge";
 import { recipes } from "@/data/recipes";
 
+// Scale numeric quantities in an ingredient string
+const scaleIngredient = (text: string, scale: number): string => {
+  if (scale === 1) return text;
+  return text.replace(/(\d+\.?\d*)\s*\/\s*(\d+\.?\d*)/g, (_, num, den) => {
+    const val = (parseFloat(num) / parseFloat(den)) * scale;
+    return val % 1 === 0 ? String(val) : val.toFixed(1);
+  }).replace(/(\d+\.?\d*)/g, (match) => {
+    const val = parseFloat(match) * scale;
+    return val % 1 === 0 ? String(val) : val.toFixed(1);
+  });
+};
+
 const RecipeDetail = () => {
   const { id } = useParams<{ id: string }>();
   const recipe = recipes.find((r) => r.id === id);
@@ -158,19 +170,23 @@ const RecipeDetail = () => {
             {/* Ingredients */}
             <div className="rounded-xl border border-border bg-card p-5">
               <h3 className="font-display text-lg font-semibold text-card-foreground">Ingredients</h3>
-              <ul className="mt-3 space-y-2">
-                {recipe.ingredients.map((ing, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm">
-                    <input type="checkbox" className="mt-1 h-4 w-4 rounded border-border accent-primary" />
-                    <span className="text-foreground">{metric ? ing.metric : ing.imperial}</span>
-                  </li>
-                ))}
-              </ul>
               {scale !== 1 && (
-                <p className="mt-3 text-xs text-muted-foreground italic">
-                  Adjust quantities proportionally for {servings} servings (×{scale.toFixed(1)})
+                <p className="mt-1 text-xs text-primary font-medium">
+                  Scaled for {servings} servings (×{scale.toFixed(1)})
                 </p>
               )}
+              <ul className="mt-3 space-y-2">
+                {recipe.ingredients.map((ing, i) => {
+                  const raw = metric ? ing.metric : ing.imperial;
+                  const scaled = scaleIngredient(raw, scale);
+                  return (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      <input type="checkbox" className="mt-1 h-4 w-4 rounded border-border accent-primary" />
+                      <span className="text-foreground">{scaled}</span>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
 
             {/* Nutrition */}
@@ -180,7 +196,7 @@ const RecipeDetail = () => {
                 {Object.entries(recipe.nutrition).map(([key, val]) => (
                   <div key={key} className="flex justify-between rounded-md bg-muted px-3 py-2">
                     <span className="capitalize text-muted-foreground">{key}</span>
-                    <span className="font-semibold text-foreground">{Math.round(val * scale)}{key === "calories" ? "" : "g"}</span>
+                    <span className="font-semibold text-foreground">{val}{key === "calories" ? "" : "g"}</span>
                   </div>
                 ))}
               </div>

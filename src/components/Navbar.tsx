@@ -1,28 +1,50 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Search, ArrowLeft, Sun, Moon, Home } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
+  { label: "Home", href: "/", icon: Home },
   { label: "Recipes", href: "/recipes" },
   { label: "Baking Studio", href: "/baking" },
   { label: "Halaal Hub", href: "/halaal" },
   { label: "AI Generator", href: "/ai-generator" },
   { label: "Baker's Toolkit", href: "/toolkit" },
+  { label: "Meal Planner", href: "/meal-planner" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
+
+  const toggleDark = () => {
+    document.documentElement.classList.toggle("dark");
+    setDark(!dark);
+  };
+
+  const isHome = location.pathname === "/";
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-16 items-center justify-between md:h-18">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="FlavourForge" className="h-9 w-9" />
-          <span className="font-display text-xl font-bold text-gradient-warm">FlavourForge</span>
-        </Link>
+        <div className="flex items-center gap-2">
+          {!isHome && (
+            <button
+              onClick={() => navigate(-1)}
+              className="mr-1 rounded-md p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+              aria-label="Go back"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </button>
+          )}
+          <Link to="/" className="flex items-center gap-2">
+            <img src={logo} alt="FlavourForge" className="h-9 w-9" />
+            <span className="font-display text-xl font-bold text-gradient-warm">FlavourForge</span>
+          </Link>
+        </div>
 
         <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
@@ -48,6 +70,13 @@ const Navbar = () => {
             <Search className="h-4 w-4" />
             <span>Search recipes...</span>
           </Link>
+          <button
+            onClick={toggleDark}
+            className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            aria-label="Toggle dark mode"
+          >
+            {dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </button>
           <button
             onClick={() => setOpen(!open)}
             className="rounded-md p-2 text-foreground lg:hidden"

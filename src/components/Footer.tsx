@@ -28,7 +28,7 @@ const Footer = () => (
         <div>
           <h4 className="mb-3 font-body text-sm font-semibold text-foreground">More</h4>
           <div className="flex flex-col gap-2">
-            <span className="text-sm text-muted-foreground">Meal Planner (coming soon)</span>
+            <Link to="/meal-planner" className="text-sm text-muted-foreground hover:text-foreground">Meal Planner</Link>
             <span className="text-sm text-muted-foreground">Cook Mode (coming soon)</span>
             <span className="text-sm text-muted-foreground">Collections (coming soon)</span>
           </div>

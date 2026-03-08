@@ -1545,7 +1545,7 @@ export const recipes: Recipe[] = [
     id: "rice-pudding",
     name: "Creamy Rice Pudding",
     description: "Old-fashioned baked rice pudding with vanilla, nutmeg, and a caramelised skin on top.",
-    image: victoriaSponge,
+    image: ricePudding,
     category: "desserts",
     cuisine: "British",
     difficulty: "beginner",

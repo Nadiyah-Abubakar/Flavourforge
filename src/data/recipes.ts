@@ -1321,7 +1321,7 @@ export const recipes: Recipe[] = [
     id: "potato-samosa",
     name: "Potato Samosas",
     description: "Crispy pastry triangles stuffed with spiced potato, peas, and aromatic cumin.",
-    image: tikkaMasala,
+    image: potatoSamosa,
     category: "snacks",
     cuisine: "Indian",
     difficulty: "intermediate",

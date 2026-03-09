@@ -26,7 +26,7 @@ import jollofRice from "@/assets/recipes/jollof-rice.jpg";
 import biryani from "@/assets/recipes/biryani.jpg";
 import friedRice from "@/assets/recipes/fried-rice.jpg";
 import poundedYam from "@/assets/recipes/pounded-yam.jpg";
-import yamPorridge from "@/assets/recipes/yam-porridge.jpg";
+
 import roastPotatoes from "@/assets/recipes/roast-potatoes.jpg";
 import potatoGratin from "@/assets/recipes/potato-gratin.jpg";
 import spaghettiBolognese from "@/assets/recipes/spaghetti-bolognese.jpg";

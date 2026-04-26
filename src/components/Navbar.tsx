@@ -43,9 +43,9 @@ const Navbar = () => {
               <ArrowLeft className="h-5 w-5" />
             </button>
           )}
-          <Link to="/" className="flex items-center gap-2 lg:flex-col lg:items-center lg:gap-0.5">
+          <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="FlavourForge" className="h-9 w-9" />
-            <span className="font-display text-lg font-bold text-gradient-warm lg:text-xs lg:leading-none xl:text-sm">FlavourForge</span>
+            <span className="font-display text-lg font-bold text-gradient-warm lg:text-sm xl:text-base">FlavourForge</span>
           </Link>
         </div>
 

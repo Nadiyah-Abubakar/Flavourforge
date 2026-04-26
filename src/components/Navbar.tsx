@@ -8,12 +8,12 @@ import logo from "@/assets/logo.png";
 const navLinks = [
   { label: "Home", href: "/", icon: Home },
   { label: "Recipes", href: "/recipes" },
-  { label: "Baking Studio", href: "/baking" },
-  { label: "Halaal Hub", href: "/halaal" },
-  { label: "AI Generator", href: "/ai-generator" },
-  { label: "Baker's Toolkit", href: "/toolkit" },
-  { label: "Meal Planner", href: "/meal-planner" },
-  { label: "Saved Recipes", href: "/saved-recipes" },
+  { label: "Baking Studio", shortLabel: "Baking", href: "/baking" },
+  { label: "Halaal Hub", shortLabel: "Halaal", href: "/halaal" },
+  { label: "AI Generator", shortLabel: "AI", href: "/ai-generator" },
+  { label: "Baker's Toolkit", shortLabel: "Toolkit", href: "/toolkit" },
+  { label: "Meal Planner", shortLabel: "Planner", href: "/meal-planner" },
+  { label: "Saved Recipes", shortLabel: "Saved", href: "/saved-recipes" },
 ];
 
 const Navbar = () => {
@@ -49,18 +49,19 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <nav className="hidden flex-1 items-center justify-center gap-0.5 xl:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-0.5 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className={`whitespace-nowrap rounded-md px-2.5 py-2 font-body text-sm font-medium transition-colors hover:bg-muted ${
+              className={`whitespace-nowrap rounded-md px-1.5 py-2 font-body text-xs font-medium transition-colors hover:bg-muted xl:px-2.5 xl:text-sm ${
                 location.pathname === link.href
                   ? "bg-muted text-foreground"
                   : "text-muted-foreground"
               }`}
             >
-              {link.label}
+              <span className="xl:hidden">{(link as any).shortLabel ?? link.label}</span>
+              <span className="hidden xl:inline">{link.label}</span>
             </Link>
           ))}
         </nav>
@@ -75,7 +76,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/recipes"
-            className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors 2xl:hidden"
+            className="hidden md:inline-flex rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors 2xl:hidden"
             aria-label="Search recipes"
           >
             <Search className="h-5 w-5" />
@@ -90,7 +91,7 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={() => signOut()}
-              className="hidden sm:flex items-center gap-1.5 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+              className="hidden sm:flex items-center gap-1.5 rounded-md px-2 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
             >
               <LogOut className="h-4 w-4" />
               <span className="hidden xl:inline">Sign Out</span>
@@ -98,7 +99,7 @@ const Navbar = () => {
           ) : (
             <Link
               to="/auth"
-              className="hidden sm:flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium text-primary hover:bg-muted transition-colors"
+              className="hidden sm:flex items-center gap-1.5 rounded-md px-2 py-2 text-sm font-medium text-primary hover:bg-muted transition-colors"
             >
               <User className="h-4 w-4" />
               <span className="hidden xl:inline">Sign In</span>
@@ -106,7 +107,7 @@ const Navbar = () => {
           )}
           <button
             onClick={() => setOpen(!open)}
-            className="rounded-md p-2 text-foreground xl:hidden"
+            className="rounded-md p-2 text-foreground lg:hidden"
             aria-label="Toggle menu"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -120,7 +121,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden border-t border-border xl:hidden"
+            className="overflow-hidden border-t border-border lg:hidden"
           >
             <nav className="container flex flex-col gap-1 py-4">
               {navLinks.map((link) => (

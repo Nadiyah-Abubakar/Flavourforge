@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Search, ArrowLeft, Sun, Moon, Home, User, LogOut, BookOpen } from "lucide-react";
+import { Menu, X, ArrowLeft, Sun, Moon, Home, User, LogOut, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo.png";
@@ -67,20 +67,6 @@ const Navbar = () => {
         </nav>
 
         <div className="flex flex-shrink-0 items-center gap-1">
-          <Link
-            to="/recipes"
-            className="hidden items-center gap-2 rounded-lg bg-muted px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-border 2xl:flex"
-          >
-            <Search className="h-4 w-4" />
-            <span>Search recipes...</span>
-          </Link>
-          <Link
-            to="/recipes"
-            className="hidden md:inline-flex rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors 2xl:hidden"
-            aria-label="Search recipes"
-          >
-            <Search className="h-5 w-5" />
-          </Link>
           <button
             onClick={toggleDark}
             className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"

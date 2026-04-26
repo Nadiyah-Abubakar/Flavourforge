@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Search, ArrowLeft, Sun, Moon, Home, User, LogOut, BookOpen } from "lucide-react";
+import { Menu, X, ArrowLeft, Sun, Moon, Home, User, LogOut, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo.png";

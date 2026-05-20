@@ -1,78 +1,42 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/contexts/AuthContext";
+import {
+  deleteLocalSavedRecipe,
+  getLocalSavedRecipes,
+  type LocalSavedRecipe,
+} from "@/lib/savedRecipesStorage";
 import { BookOpen, Trash2, Loader2, ChefHat, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import HalaalBadge from "@/components/HalaalBadge";
 
-interface SavedRecipe {
-  id: string;
-  title: string;
-  content: string;
-  halaal_mode: boolean;
-  baking_mode: boolean;
-  cuisine: string | null;
-  servings: number | null;
-  ingredients: string[];
-  created_at: string;
-}
-
 const SavedRecipes = () => {
-  const { user } = useAuth();
-  const [recipes, setRecipes] = useState<SavedRecipe[]>([]);
+  const [recipes, setRecipes] = useState<LocalSavedRecipe[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const fetchRecipes = async () => {
-    const { data, error } = await supabase
-      .from("saved_recipes")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (error) {
-      toast.error("Failed to load saved recipes");
-    } else {
-      setRecipes(data as SavedRecipe[]);
-    }
+  const fetchRecipes = () => {
+    setRecipes(getLocalSavedRecipes());
     setLoading(false);
   };
 
   useEffect(() => {
-    if (user) fetchRecipes();
-    else setLoading(false);
-  }, [user]);
+    fetchRecipes();
+  }, []);
 
-  const handleDelete = async (id: string) => {
-    const { error } = await supabase.from("saved_recipes").delete().eq("id", id);
-    if (error) {
-      toast.error("Failed to delete recipe");
-    } else {
-      setRecipes((prev) => prev.filter((r) => r.id !== id));
-      toast.success("Recipe deleted");
-    }
+  const handleDelete = (id: string) => {
+    deleteLocalSavedRecipe(id);
+    setRecipes((prev) => prev.filter((r) => r.id !== id));
+    toast.success("Recipe deleted");
   };
 
   // Extract title from markdown content (first # heading)
-  const extractTitle = (recipe: SavedRecipe) => {
+  const extractTitle = (recipe: LocalSavedRecipe) => {
     if (recipe.title) return recipe.title;
     const match = recipe.content.match(/^#\s+(.+)$/m);
     return match ? match[1] : "Untitled Recipe";
   };
-
-  if (!user) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-background px-4">
-        <BookOpen className="h-12 w-12 text-muted-foreground" />
-        <h2 className="font-display text-xl font-bold text-foreground">Sign in to view saved recipes</h2>
-        <Link to="/auth">
-          <Button className="bg-gradient-warm border-0 text-primary-foreground">Sign In</Button>
-        </Link>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen">

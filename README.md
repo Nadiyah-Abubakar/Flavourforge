@@ -1,73 +1,120 @@
-# Welcome to your Lovable project
+# FlavourForge
 
-## Project info
+FlavourForge is a responsive recipe platform for discovering curated meals, generating AI-powered recipes from your ingredients, and managing your personal cookbook—with dedicated tools for baking and Halaal cooking.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Tech stack
 
-## How can I edit this code?
+| Layer | Technologies |
+| --- | --- |
+| **Frontend** | React 18, TypeScript, Vite |
+| **Routing** | React Router v6 |
+| **UI** | Tailwind CSS, shadcn/ui (Radix primitives), Framer Motion |
+| **State & data** | TanStack Query, React Hook Form, Zod |
+| **Backend** | Supabase (auth, database, Edge Functions) |
+| **Testing** | Vitest, Testing Library |
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Recipe library** — Browse 150+ curated recipes with detail pages, filters, and search.
+- **AI recipe generator** — Enter ingredients and preferences (cuisine, skill level, cook time, servings) to generate personalised recipes via Supabase Edge Functions.
+- **Baking studio** — Dedicated baking recipes and precision-focused tools.
+- **Baker's toolkit** — Utility helpers for common baking calculations and conversions.
+- **Halaal hub** — Verified Halaal recipes with certified alternatives and transparency.
+- **Meal planner** — Plan meals across the week.
+- **Saved recipes** — Sign in to save and revisit favourite recipes (requires Supabase auth).
+- **Authentication** — Email-based sign-up and sign-in powered by Supabase.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- [Node.js](https://nodejs.org/) 18+ (LTS recommended)
+- npm (or another package manager compatible with `package-lock.json`)
+- A Supabase project with the required tables, auth, and `generate-recipe` Edge Function configured
 
-**Use your preferred IDE**
+## Setup
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Clone the repository**
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+   ```sh
+   git clone <YOUR_GIT_URL>
+   cd FLAVORFORGE
+   ```
 
-Follow these steps:
+2. **Install dependencies**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+   ```sh
+   npm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Configure environment variables**
 
-# Step 3: Install the necessary dependencies.
-npm i
+   Create a `.env` file in the project root:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+   ```env
+   VITE_SUPABASE_URL=https://your-project.supabase.co
+   VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key
+   VITE_SUPABASE_PROJECT_ID=your-project-id
+   ```
+
+   Obtain these values from your [Supabase project settings](https://supabase.com/dashboard).
+
+   For the AI recipe generator Edge Function, set these secrets in your Supabase project (Dashboard → Edge Functions → Secrets, or `supabase secrets set`):
+
+   ```env
+   AI_API_KEY=your-gemini-or-openai-compatible-api-key
+   ```
+
+   Optional overrides (defaults target the Google Gemini OpenAI-compatible API):
+
+   ```env
+   AI_API_URL=https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
+   AI_MODEL=gemini-2.0-flash
+   ```
+
+4. **Start the development server**
+
+   ```sh
+   npm run dev
+   ```
+
+   The app runs at [http://localhost:8080](http://localhost:8080) by default.
+
+## Available scripts
+
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite dev server with hot module replacement |
+| `npm run build` | Production build to `dist/` |
+| `npm run build:dev` | Development-mode build (useful for debugging build issues) |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint across the project |
+| `npm run test` | Run Vitest test suite once |
+| `npm run test:watch` | Run Vitest in watch mode |
+
+## Project structure
+
+```
+├── src/
+│   ├── components/   # Shared UI and layout components
+│   ├── contexts/     # React context providers (e.g. auth)
+│   ├── data/         # Static recipe data
+│   ├── hooks/        # Custom React hooks
+│   ├── integrations/ # Supabase client and types
+│   ├── pages/        # Route-level page components
+│   └── ...
+├── public/           # Static assets
+├── index.html        # HTML entry point
+└── vite.config.ts    # Vite configuration
 ```
 
-**Edit a file directly in GitHub**
+## Building for production
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+npm run build
+npm run preview
+```
 
-**Use GitHub Codespaces**
+Deploy the contents of the `dist/` folder to any static host (Vercel, Netlify, Cloudflare Pages, etc.). Ensure your Supabase URL and anon key are set in the deployment environment.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## License
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Private project. All rights reserved unless otherwise specified by the repository owner.

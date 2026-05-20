@@ -1,3 +1,4 @@
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -6,7 +7,14 @@ import RecipeCard from "@/components/RecipeCard";
 import { recipes, bakingCategories } from "@/data/recipes";
 
 const BakingStudio = () => {
-  const bakingRecipes = recipes.filter((r) => r.isBaking);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const bakingRecipes = useMemo(() => recipes.filter((r) => r.isBaking), []);
+
+  const displayedRecipes = useMemo(() => {
+    if (!selectedCategory) return bakingRecipes;
+    return bakingRecipes.filter((r) => r.bakingCategory === selectedCategory);
+  }, [bakingRecipes, selectedCategory]);
 
   return (
     <div className="min-h-screen">
@@ -33,11 +41,22 @@ const BakingStudio = () => {
           {bakingCategories.map((cat, i) => (
             <motion.div
               key={cat.name}
+              role="button"
+              tabIndex={0}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group cursor-pointer rounded-xl border border-border bg-card p-5 transition-all hover:shadow-elevated hover:border-primary/30"
+              onClick={() => setSelectedCategory((prev) => (prev === cat.name ? null : cat.name))}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setSelectedCategory((prev) => (prev === cat.name ? null : cat.name));
+                }
+              }}
+              className={`group cursor-pointer rounded-xl border border-border bg-card p-5 transition-all hover:shadow-elevated hover:border-primary/30 hover:scale-[1.02] active:scale-[0.98] ${
+                selectedCategory === cat.name ? "shadow-elevated border-primary ring-2 ring-primary/20" : ""
+              }`}
             >
               <span className="text-3xl">{cat.icon}</span>
               <h3 className="mt-3 font-display text-base font-semibold text-card-foreground">{cat.name}</h3>
@@ -51,11 +70,24 @@ const BakingStudio = () => {
       {/* Baking Recipes */}
       <div className="bg-warm py-12 md:py-16">
         <div className="container">
-          <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">Featured Baking Recipes</h2>
+          <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">
+            {selectedCategory ? selectedCategory : "Featured Baking Recipes"}
+          </h2>
+          {selectedCategory && (
+            <p className="mt-2 text-sm text-muted-foreground">
+              {displayedRecipes.length} recipe{displayedRecipes.length !== 1 ? "s" : ""} in this category
+            </p>
+          )}
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {bakingRecipes.map((r, i) => (
-              <RecipeCard key={r.id} recipe={r} index={i} />
-            ))}
+            {displayedRecipes.length === 0 ? (
+              <p className="col-span-full py-12 text-center text-muted-foreground">
+                No recipes in this category yet. Check back soon!
+              </p>
+            ) : (
+              displayedRecipes.map((r, i) => (
+                <RecipeCard key={r.id} recipe={r} index={i} />
+              ))
+            )}
           </div>
         </div>
       </div>

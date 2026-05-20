@@ -11,6 +11,11 @@ import { Slider } from "@/components/ui/slider";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
+import {
+  isRecipeAlreadySaved,
+  isSupabaseConfigured,
+  saveRecipeToLocal,
+} from "@/lib/savedRecipesStorage";
 
 const cuisines = ["Any", "Italian", "Asian", "African", "Mexican", "Middle Eastern", "Indian", "Mediterranean", "American", "French"];
 const skills = ["Beginner", "Intermediate", "Advanced"];
@@ -150,19 +155,19 @@ const AIGenerator = () => {
   };
 
   const handleSave = async () => {
-    if (!user) {
-      toast.error("Please sign in to save recipes");
-      navigate("/auth");
+    if (!recipeText) return;
+
+    if (isRecipeAlreadySaved(recipeText)) {
+      toast("Recipe already saved");
+      setIsSaved(true);
       return;
     }
-    if (!recipeText) return;
 
     setIsSaving(true);
     const titleMatch = recipeText.match(/^#\s+(.+)$/m);
     const title = titleMatch ? titleMatch[1] : "AI Generated Recipe";
 
-    const { error } = await supabase.from("saved_recipes").insert({
-      user_id: user.id,
+    const recipeData = {
       title,
       content: recipeText,
       halaal_mode: halaalMode,
@@ -170,14 +175,19 @@ const AIGenerator = () => {
       cuisine: cuisine !== "Any" ? cuisine : null,
       servings,
       ingredients,
-    } as any);
+    };
 
-    if (error) {
-      toast.error("Failed to save recipe");
-    } else {
-      toast.success("Recipe saved!");
-      setIsSaved(true);
+    saveRecipeToLocal(recipeData);
+
+    if (user && isSupabaseConfigured()) {
+      await supabase.from("saved_recipes").insert({
+        user_id: user.id,
+        ...recipeData,
+      } as any);
     }
+
+    toast.success("Recipe saved successfully!");
+    setIsSaved(true);
     setIsSaving(false);
   };
 

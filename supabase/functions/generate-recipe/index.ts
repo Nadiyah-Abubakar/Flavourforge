@@ -11,8 +11,13 @@ serve(async (req) => {
   try {
     const { ingredients, halaalMode, bakingMode, cuisine, cookTime, servings, skill } = await req.json();
 
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
+    const AI_API_KEY = Deno.env.get("AI_API_KEY");
+    if (!AI_API_KEY) throw new Error("AI_API_KEY is not configured");
+
+    const AI_API_URL =
+      Deno.env.get("AI_API_URL") ??
+      "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions";
+    const AI_MODEL = Deno.env.get("AI_MODEL") ?? "gemini-2.0-flash";
 
     const halaalInstructions = halaalMode
       ? `HALAAL MODE IS ON: All ingredients MUST be halaal. Replace any non-halaal ingredients (pork, alcohol, non-halaal meat) with halaal alternatives. Mention that meat should be sourced from a certified halaal butcher. Replace wine/alcohol with non-alcoholic alternatives like broth, vinegar, or juice.`
@@ -60,14 +65,14 @@ ${bakingMode ? "- BAKING: Yes, provide precise gram measurements" : ""}
 
 Generate a delicious, practical recipe that primarily uses the listed ingredients. You may suggest a few additional common pantry staples if needed (mark them with *).`;
 
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const response = await fetch(AI_API_URL, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        Authorization: `Bearer ${AI_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
+        model: AI_MODEL,
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt },

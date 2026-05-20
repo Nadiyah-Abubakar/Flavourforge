@@ -9,7 +9,7 @@ Discover curated recipes, generate AI-powered meals from ingredients you already
 ## ✨ Features
 
 ### 🍴 Recipe Discovery
-Browse **150+ curated recipes** with rich detail pages, filtering, and intelligent search.
+Browse a growing collection of curated recipes
 
 ### 🤖 AI Recipe Generator
 Generate personalised recipes from available ingredients and preferences including:
@@ -17,8 +17,7 @@ Generate personalised recipes from available ingredients and preferences includi
 - Skill level
 - Cooking time
 - Serving size
-
-Powered through **Supabase Edge Functions + AI integration**.
+- 
 
 ### 🧁 Baking Studio
 Explore a dedicated baking experience with precision-focused recipes and baking-specific tools.
@@ -47,12 +46,11 @@ Secure email-based authentication powered by Supabase.
 
 | Layer | Technologies |
 |---|---|
-| **Frontend** | React 18 · TypeScript · Vite |
-| **Routing** | React Router v6 |
-| **UI & Animation** | Tailwind CSS · shadcn/ui · Radix UI · Framer Motion |
-| **State & Forms** | TanStack Query · React Hook Form · Zod |
-| **Backend** | Supabase (Authentication · Database · Edge Functions) |
-| **Testing** | Vitest · Testing Library |
+| Frontend | React · TypeScript · Vite |
+| UI | Tailwind CSS · shadcn/ui |
+| Backend | Supabase |
+| State | TanStack Query |
+| Testing | Vitest |
 
 ---
 
@@ -102,7 +100,6 @@ Optional configuration:
 
 ```env
 AI_API_URL=https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
-AI_MODEL=gemini-2.0-flash
 ```
 
 ---
@@ -125,13 +122,8 @@ http://localhost:8080
 
 | Command | Purpose |
 |---|---|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run build:dev` | Development-mode build |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
-| `npm run test` | Run tests once |
-| `npm run test:watch` | Run tests in watch mode |
+npm run dev
+npm run build
 
 ---
 
